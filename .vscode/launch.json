@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run connector.sync",
+      "type": "python",
+      "request": "launch",
+      "module": "connector.sync",
+      "envFile": "${workspaceFolder}/.env.local",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug single workspace",
+      "type": "python",
+      "request": "launch",
+      "module": "connector.sync",
+      "env": {
+        "SYNC_WORKSPACE_IDS": "${input:workspaceId}",
+        "SYNC_DEBUG_DUMP_MARKDOWN": "true"
+      },
+      "envFile": "${workspaceFolder}/.env.local",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "workspaceId",
+      "type": "promptString",
+      "description": "Workspace ID to sync",
+      "default": ""
+    }
+  ]
+}
